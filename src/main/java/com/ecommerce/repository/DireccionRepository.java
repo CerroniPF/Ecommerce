@@ -9,4 +9,10 @@ public interface DireccionRepository extends JpaRepository<Direccion, Long> {
 
     @Override
     List<Direccion> findAll();
+
+    @Override
+    Direccion save(Direccion direccion);
+
+    @Override
+    void deleteById(Long id);
 }

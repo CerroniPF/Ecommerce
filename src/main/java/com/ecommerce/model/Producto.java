@@ -14,4 +14,6 @@ public class Producto {
     private String descripcion;
     private Float precio;
     private Integer stock;
+    private String categoria;
+    private String estado;
 }
