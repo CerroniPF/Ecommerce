@@ -14,6 +14,10 @@ public class ItemPedido {
     private int id;
     private Integer orden;
     private Integer cantidad;
-    @OneToMany
-    private List<Producto> productos;
+    @ManyToOne
+    private Producto producto;
+    //
+    //
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Pedido pedido;
 }

@@ -9,17 +9,22 @@ import java.util.List;
 @Table(name = "pedido")
 public class Pedido {
     @Id
-    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private Integer orden;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "direccion_entrega_id")
     private Direccion direccionEntrega;
     private String estado;
-    @OneToMany
+    //Armar enum?
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id")
     private List<ItemPedido> itemsPedido;
     @ManyToOne
+    @JoinColumn(name = "cadete_id")
     private Cadete cadete;
     private String fechaIngreso;
     private String fechaDespacho;
